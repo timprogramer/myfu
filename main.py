@@ -10,7 +10,7 @@ wrap.world.set_back_color(255, 255, 255)
 
 mario=wrap.sprite.add("mario-1-big",mariox,marioy,"jump")
 enemy=wrap.sprite.add("mario-enemies",enemyx,enemyy,"cloud")
-def run_vasya(x,y):
+def run_vasya(x,y,angle):
     mariomex=wrap.sprite.get_x(mario)
     mariomey=wrap.sprite.get_y(mario)
 
@@ -20,7 +20,7 @@ def run_vasya(x,y):
 
     wrap.sprite.set_size(mario,40,40)
 
-    wrap.sprite.set_angle(mario,180)
+    wrap.sprite.set_angle(mario,angle)
 
     wrap.actions.move_to(mario,x,y)
 
@@ -40,11 +40,11 @@ def monstr():
 
     wrap.actions.move_to(enemy,mariohuntx-40,mariohunty-40)
 
-run_vasya(340,240)
+run_vasya(340,240,180)
 monstr()
-run_vasya(150,340)
+run_vasya(150,340,270)
 monstr()
-run_vasya(440,540)
+run_vasya(440,540,90)
 monstr()
 
 
