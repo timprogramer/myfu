@@ -40,10 +40,10 @@ def monstr():
 
     wrap.actions.move_to(enemy,mariohuntx-40,mariohunty-40)
 
-def saymonstr(player_id):
-    enemymex=wrap.sprite.get_x(enemy)
-    enemymey=wrap.sprite.get_y(enemy)
-    textenemy = wrap.sprite.add_text("иди сюда!!!", enemymex, enemymey - 50, "Arial",font_size=20,underline=True,text_color=(254, 110, 159))
+def saymarioorenemy(player_id,textdef):
+    marioorenemyx=wrap.sprite.get_x(player_id)
+    marioorenemyy=wrap.sprite.get_y(player_id)
+    textenemy = wrap.sprite.add_text(textdef, marioorenemyx, marioorenemyy- 50, "Arial",font_size=20,underline=True,text_color=(254, 110, 159))
     time.sleep(2)
     wrap.sprite.set_size_percent(textenemy, 200, 200)
     time.sleep(1)
@@ -52,21 +52,20 @@ def saymonstr(player_id):
     wrap.sprite.remove(textenemy)
 
 
-def saymario():
 
 
-saymario()
 run_vasya(340,240,180)
-saymonstr()
+saymarioorenemy(mario,"run run run")
 monstr()
-saymario()
+saymarioorenemy(enemy,"come here")
 run_vasya(150,340,270)
-saymonstr()
+saymarioorenemy(mario,"no")
 monstr()
-saymario()
+saymarioorenemy(enemy,"я сказал")
 run_vasya(440,540,90)
-saymonstr()
+saymarioorenemy(mario,"а за что?")
 monstr()
+saymarioorenemy(enemy,"за всё!")
 
 
 
