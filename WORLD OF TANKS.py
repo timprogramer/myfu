@@ -36,26 +36,34 @@ def create_tanksandspawn(x,y,tank_id):
 
 def tank_up(tank_id,pixel):
     wrap.sprite.set_angle(tank_id,360)
-    wrap.sprite.move_at_angle_dir(tank_id,pixel)
+    wrap.actions.move_at_angle_dir(tank_id,pixel)
 
 def tank_down(tank_id,pixel):
     wrap.sprite.set_angle(tank_id,180)
-    wrap.sprite.move_at_angle_dir(tank_id,pixel)
+    wrap.actions.move_at_angle_dir(tank_id,pixel)
 
 def tank_right(tank_id,pixel):
     wrap.sprite.set_angle(tank_id,90)
-    wrap.sprite.move_at_angle_dir(tank_id,pixel)
+    wrap.actions.move_at_angle_dir(tank_id,pixel)
 
 def tank_left(tank_id,pixel):
     wrap.sprite.set_angle(tank_id,-90)
-    wrap.sprite.move_at_angle_dir(tank_id,pixel)
+    wrap.actions.move_at_angle_dir(tank_id,pixel)
 
 def tank_pistolet(tank_id,speed):
     pux=wrap.sprite.get_x(tank_id)
     puy=wrap.sprite.get_y(tank_id)
     foer=wrap.sprite.add("mario-scenery",pux,puy,"firework1")
-    wrap.sprite.move_at_angle_dir(foer,speed)
+    wrap.actions.move_at_angle_dir(foer,speed)
+    wrap.sprite.hide(foer)
 
+def tank_remove(tankid):
+    pux=wrap.sprite.get_x(tankid)
+    puy=wrap.sprite.get_y(tankid)
+    vzryv=wrap.sprite.add("battle_city_items",pux,puy,"effect_explosion_big2")
+    wrap.sprite.remove(tankid)
+    time.sleep(0.7)
+    wrap.sprite.remove(vzryv)
 create_tanksandspawn(100,100,t1)
 create_tanksandspawn(350,200,t2)
 time.sleep(0.7)
@@ -74,9 +82,9 @@ time.sleep(0.7)
 tank_left(t2,1)
 time.sleep(0.7)
 tank_right(t1,0)
-tank_pistolet(t1,200)
-
-
+tank_pistolet(t2,-250)
+time.sleep(0.7)
+tank_remove(t1)
 
 
 
