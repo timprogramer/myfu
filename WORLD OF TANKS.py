@@ -50,7 +50,11 @@ def tank_left(tank_id,pixel):
     wrap.sprite.set_angle(tank_id,-90)
     wrap.sprite.move_at_angle_dir(tank_id,pixel)
 
-
+def tank_pistolet(tank_id,speed):
+    pux=wrap.sprite.get_x(tank_id)
+    puy=wrap.sprite.get_y(tank_id)
+    foer=wrap.sprite.add("mario-scenery",pux,puy,"firework1")
+    wrap.sprite.move_at_angle_dir(foer,speed)
 
 create_tanksandspawn(100,100,t1)
 create_tanksandspawn(350,200,t2)
@@ -70,7 +74,7 @@ time.sleep(0.7)
 tank_left(t2,1)
 time.sleep(0.7)
 tank_right(t1,0)
-
+tank_pistolet(t1,200)
 
 
 
